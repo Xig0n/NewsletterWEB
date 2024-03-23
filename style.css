@@ -1,0 +1,196 @@
+:root {
+    /* COLORS */
+    --cl-Dark-Slate-Grey: hsl(234, 29%, 20%);
+    --cl-Charcoal-Grey: hsl(235, 18%, 26%);
+    --cl-Grey: hsl(231, 7%, 60%);
+    --cl-White: hsl(0, 0%, 100%);
+    --cl-Tomato: hsl(4, 100%, 67%);
+
+    /* FONTS */
+    --fn-roboto: "Roboto", sans-serif;
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: var(--fn-roboto);
+    font-weight: 400;   
+    font-style: normal;
+
+}
+
+.main__container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "image"
+    "data"
+    "data";
+}
+
+.container__image {
+    grid-area: image;
+    border-radius: 0px 0px 15px 15px;
+    background: url(./assets/images/illustration-sign-up-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container__data {
+    grid-area: data;
+    position: relative;
+    padding: 40px 2em;
+}
+.container__title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--cl-Dark-Slate-Grey);
+}
+
+.container__paragraph {
+    font-size: 17px;
+    color: var(--cl-Dark-Slate-Grey);
+    margin-bottom: 20px;
+}
+
+.container__list {
+    list-style-type: none;
+    list-style: none;
+    margin-bottom: 30px;    
+}
+
+.container__list li {
+    font-size: 1.1em;
+    color: var(--cl-Dark-Slate-Grey);
+    margin-bottom: 15px;
+}
+
+.container__list li::before {
+    content: "";
+    background: url(./assets/images/icon-list.svg);
+    background-size: cover;
+    width: 1em; 
+    height: 1em;
+    display: inline-block;
+    margin-left: -1em;
+    transform: translateX(-110%);
+}
+
+.container__form label {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+.container__form input, .successContainer__button{
+    padding: 20px 20px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--cl-Grey);
+
+}
+
+.container__form input[type="email"] {
+    color:  var(--cl-Dark-Slate-Grey);
+}
+
+.container__form input[type="submit"], .successContainer__button {
+    color:  var(--cl-White);
+    background-color: var(--cl-Dark-Slate-Grey);
+    font-weight: 700;
+}
+
+
+/* SUCCESS ALERT */
+
+.main__successContainer {
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cl-White);
+    transition: transform 1s ease-in-out;
+    transform: translateX(-100%);
+    padding: 25px;
+}
+
+.main__successContainer.active  {
+    transform: translateX(0%);
+}
+
+.successContainer__data {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center ;
+}
+
+.successContainer__data * {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1000px) {
+    body {
+        background-color: var(--cl-Charcoal-Grey);
+        
+    }
+
+    .main {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+    }
+    .main__container {
+        width: 1000px;
+        height: 600px;
+        padding: 30px;
+        background-color: var(--cl-White);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "data image"
+        "data image";
+        border-radius: 25px;
+        overflow: hidden;
+        transition: transform 1s ease-in-out;
+
+    }
+
+    .main__container.active {
+        transform: translateY(-200%);
+    }
+
+    .container__image {
+        margin: 20px;
+        background: url(./assets/images/illustration-sign-up-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .main__successContainer {
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%) translateY(220%) !important;
+        width: 500px;
+        height: 500px;
+        border-radius: 25px;
+    }
+    .main__successContainer.active {
+        transition: transform 1s ease-in-out;
+        transform: translate(-50%) translateY(0%) !important;
+    }
+
+
+}
