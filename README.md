@@ -3,4 +3,4 @@
 - **Newsletter Web**, a simple newsletter made with HTML, CSS and JS
 
 ## 🧑‍💻 EXAMPLE
-![Exapmple](https://ibb.co/HrHcm8d)
+![Exapmple](https://i.ibb.co/CnHjxG2/Newsletter.gif)
